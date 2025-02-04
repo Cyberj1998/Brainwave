@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { brainwave } from '../assets'
 import { navigation } from '../constants'
-import { useLocation } from 'react-router-dom'
 import Button from './Button'
 import MenuSvg from '../assets/svg/MenuSvg'
 import { HamburgerMenu } from './design/Header'
@@ -12,7 +11,6 @@ import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 
 const Navbar = () => {
 
-  const pathName = useLocation()
   const[openNavigation,setOpenNavigation]=useState(false)
 
   const toggleNavigation = () => {
@@ -45,7 +43,7 @@ const Navbar = () => {
           <div className='relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row'>
             {navigation.map((item)=>(
               <a
-                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${item.onlyMobile ? 'lg:hidden' : ''} px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${item.url === pathName.hash ? 'z-2 lg:text-n-1 ' : 'lg:text-n-1/50'} lg:leading-5 lg:hover:text-n-1 xl:px-12`} 
+                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${item.onlyMobile ? 'lg:hidden' : ''} px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold lg:leading-5 lg:hover:text-n-1 xl:px-12`} 
                 key={item.id} 
                 href={item.url}
                 onClick={handleClick}
